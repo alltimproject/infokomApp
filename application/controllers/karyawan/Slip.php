@@ -9,6 +9,10 @@ class Slip extends CI_Controller{
     $this->load->helper('tanggal');
     $this->load->library('pdf');
     $this->load->model('m_gaji');
+    if($this->session->userdata('login') != 1)
+    {
+      redirect(base_url());
+    }
     //Codeigniter : Write Less Do More
   }
 
@@ -35,7 +39,7 @@ class Slip extends CI_Controller{
     $pdf->Cell(190,7,'','C',0,1);
     $pdf->Cell(10,7,'',0,1);
     $pdf->SetFont('Arial','B',10);
-    $pdf->image('assets/img/infokom.png',70,10,70) ;
+    //$pdf->image('assets/img/infokom.png',70,10,70) ;
     $pdf->Ln(35);
     $pdf->SetFillColor(200,220,255);
     $pdf->Cell(190,16,'SLIP GAJI '.tanggal_indo($tgl_gaji),1,1,'C',1);

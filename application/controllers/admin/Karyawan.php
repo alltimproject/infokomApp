@@ -8,6 +8,10 @@ class Karyawan extends CI_Controller{
     parent::__construct();
     $this->load->model('m_divisi');
     $this->load->model('m_karyawan');
+    if($this->session->userdata('login') != 1 )
+    {
+      redirect(base_url() );
+    }
 
     //Codeigniter : Write Less Do More
   }

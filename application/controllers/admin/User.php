@@ -8,6 +8,10 @@ class User extends CI_Controller{
     parent::__construct();
     $this->load->model('m_user');
     //Codeigniter : Write Less Do More
+    if($this->session->userdata('login') != 1 )
+    {
+      redirect(base_url() );
+    }
   }
 
   function index()

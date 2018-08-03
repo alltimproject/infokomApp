@@ -8,6 +8,10 @@ class Gaji extends CI_Controller{
     parent::__construct();
     $this->load->model('m_gaji');
     $this->load->helper('tanggal');
+    if($this->session->userdata('login') != 1 )
+    {
+      redirect(base_url() );
+    }
     //Codeigniter : Write Less Do More
   }
 

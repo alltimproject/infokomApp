@@ -65,7 +65,7 @@
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Divisi </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select class="form-control" name="divisi" id="divisi">
+                          <select class="form-control" name="divisi" id="kode_divisi" required>
                             <option value=""> -- pilih divisi --  </option>
                             <?php foreach($data_divisi->result() as $key){
                               echo "<option value='$key->kode_divisi'> $key->nama_divisi </option>";
@@ -105,7 +105,7 @@
             <div class="x_title">
               <h4>Data Karyawan</h4>
             </div>
-            <table class="table table-striped table-hover" >
+            <table class="table table-striped table-hover" id="datatable">
               <thead>
                 <tr>
                   <th>NIP</th>
@@ -131,7 +131,7 @@
                     <td>
                     <a href="#" class="btn btn-warning btn-xs btn-edit"
                      data-nip="<?= $key->nip ?>" data-nama_depan="<?= $key->nama_depan ?>" data-nama_belakang="<?= $key->nama_belakang ?>"
-                     data-alamat="<?= $key->alamat ?>" data-telepon="<?= $key->no_telepon ?>" data-email="<?= $key->email ?>" data-divisi="<?= $key->kode_divisi ?>"
+                     data-alamat="<?= $key->alamat ?>" data-telepon="<?= $key->no_telepon ?>" data-join="<?= $key->tgl_gabung ?>" data-email="<?= $key->email ?>" data-divisi="<?= $key->kode_divisi ?>"
                      data-jabatan="<?= $key->jabatan ?>">EDIT</a>
                     <a href="javascript:;" data-nip="<?= $key->nip ?>" class="btn btn-danger btn-xs btn-hapus">HAPUS</a>
                     </td>
@@ -171,14 +171,18 @@
 
 
   </div>
-  <script src="<?= base_url().'assets/vendors/jquery/dist/jquery.min.js' ?> "></script>
+  <script src="<?= base_url().'assets1/vendors/jquery/dist/jquery.min.js' ?> "></script>
+  <script src="<?= base_url().'assets1/vendors/datatables.net/js/jquery.dataTables.min.js' ?>"></script>
+  <script src="<?= base_url().'assets1/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js' ?> "></script>
+  
   <script type="text/javascript">
     $(document).ready(function(){
+
       $('.btn-update').hide();
 
       $('.btn-edit').click(function(){
 
-        
+
         $('.btn-update').show('slow', function(){
             $('.btn-simpan').hide('slow');
         });
@@ -194,6 +198,7 @@
         var email         = $(this).attr('data-email');
         var divisi        = $(this).attr('data-divisi');
         var jabatan       = $(this).attr('data-jabatan');
+        var tgl_join      = $(this).attr('data-join');
 
 
 
@@ -203,8 +208,9 @@
         $('#alamat').val(alamat);
         $('#telepon').val(telp);
         $('#email').val(email);
-        $('#divisi').val(divisi);
+        $('#kode_divisi').val(divisi);
         $('#jabatan').val(jabatan);
+        $('#tgl_gabung').val(tgl_join);
 
       });
 

@@ -7,7 +7,6 @@
 <div class="x_panel">
   <span class="count_top"><i class="fa fa-user"></i> Menungu Konfirmasi</span>
   <div class="count"><?= $data_gaji_menunggu->num_rows(); ?></div>
-  <span class="count_bottom"><i class="green">4% </i> From last Week</span>
 </div>
 </div>
 
@@ -15,7 +14,6 @@
 <div class="x_panel">
   <span class="count_top"><i class="fa fa-user"></i> Konfirmasi Berhasil </span>
   <div class="count"><?= $data_gaji_konfirmasi->num_rows(); ?></div>
-  <span class="count_bottom"><i class="green">4% </i> From last Week</span>
 </div>
 </div>
 
@@ -84,7 +82,7 @@
                   <td><?= number_format($key->total_gaji) ?></td>
                   <td>
 
-                    <form action="<?= base_url('direktur/home/simpanValidasi') ?>" method="post">
+                    <form class="form-validasi" method="post">
                       <input type="hidden" name="nip" value="<?= $key->nip ?>">
                       <input type="hidden" name="tgl" value="<?= $key->tgl_penggajian ?>">
                       <input type="submit" name="simpanValidasi" value="VALIDASI" class="btn btn-info btn-xs">
@@ -138,8 +136,23 @@
 <script type="text/javascript">
   $(document).ready(function(){
 
+    $('.form-validasi').on('submit', function(event){
+      event.preventDefault();
+      var data = $('.form-validasi').serialize();
+
+      $.ajax({
+        type:'POST',
+        url:"<?= base_url('direktur/home/simpanValidasi') ?>",
+        data:data,
+        success:function(data){
+          alert(data);
+          window.location.href = '<?= base_url('direktur/home') ?> ';
+        }
+      });
 
 
+
+    })
 
 
 

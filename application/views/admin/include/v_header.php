@@ -27,6 +27,8 @@
     <link href="<?= base_url().'assets1/vendors/bootstrap-daterangepicker/daterangepicker.css' ?> " rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="<?= base_url().'assets1/build/css/custom.min.css' ?> " rel="stylesheet">
+
+    <link href="<?= base_url().'assets1/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css' ?> " rel="stylesheet">
   </head>
 
   <body class="nav-md">
@@ -104,8 +106,6 @@
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="javascript:;"> Profile</a></li>
-
                     <li><a href="<?= base_url('login/logout') ?> "><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>

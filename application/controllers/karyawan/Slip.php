@@ -39,7 +39,7 @@ class Slip extends CI_Controller{
     $pdf->Cell(190,7,'','C',0,1);
     $pdf->Cell(10,7,'',0,1);
     $pdf->SetFont('Arial','B',10);
-    //$pdf->image('assets/img/infokom.png',70,10,70) ;
+    $pdf->image('assets1/img/infokom.png',70,10,70) ;
     $pdf->Ln(35);
     $pdf->SetFillColor(200,220,255);
     $pdf->Cell(190,16,'SLIP GAJI '.tanggal_indo($tgl_gaji),1,1,'C',1);
@@ -60,7 +60,7 @@ class Slip extends CI_Controller{
     $pdf->Cell(145,6,'Potongan ',1,0);
     $pdf->Cell(45,6,number_format($potongan),1,1);
 
-    $pdf->Cell(145,6,'Total Gaji ',0,0);
+    $pdf->Cell(145,6,'Total Gaji ',1,0);
     $pdf->Cell(45,6,number_format($total_gaji),1,1);
 
     $pdf->Output();

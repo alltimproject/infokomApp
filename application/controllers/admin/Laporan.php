@@ -87,7 +87,7 @@ class Laporan extends CI_Controller{
     $pdf->Cell(190,7,'','C',0,1);
     $pdf->Cell(10,7,'',0,1);
     $pdf->SetFont('Arial','B',10);
-    //$pdf->image('assets/img/infokom.png',115,10,70) ;
+    $pdf->image('assets1/img/infokom.png',115,10,70) ;
     $pdf->Ln(35);
     $pdf->SetFillColor(200,220,255);
     $pdf->Cell(278,16,'Laporan bulanan penggajian '.tanggal_indo($tgl),1,1,'C',1);

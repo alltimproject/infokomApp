@@ -9,6 +9,16 @@
               <div class="count"><?= $jumlah_karyawan ?></div>
             </div>
 
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="fa fa-user"></i> JAM MASUK </span>
+              <div class="count">08:00</div>
+            </div>
+
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="fa fa-user"></i> JAM KELUAR </span>
+              <div class="count">16:00</div>
+            </div>
+
 
             <div class="row x_title">
               <div class="col-md-6">
@@ -35,8 +45,8 @@
                   <input type="submit" style="float:right;" name="import" value="IMPORT DATA" class="btn btn-info">
                 </form>
               </div>
-            </div>
 
+            </div>
           </div>
           <!-- /top tiles -->
 
@@ -63,19 +73,16 @@
 
 
 
-
-
           <div class="row">
 
-
-            <div class="col-md-8 col-sm-8 col-xs-12">
+            <div class="col-md-12 col-sm-12 col-xs-12">
 
               <div class="row">
 
                 <div class="col-md-12 col-sm-12 col-xs-12">
                   <div class="x_panel">
                     <div class="x_title">
-                      <h2>Histori Penggajian <small>geo-presentation</small></h2>
+                      <h2>Histori Penggajian</h2>
                       <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
@@ -170,9 +177,8 @@
         url:"<?= base_url(); ?>admin/home/simpanGaji",
         data:data,
         success:function(data){
-          loadpenggajian();
-          load_data().show(3000);
-          $('#import_form').show('slow');
+          alert(data);
+          window.location.href = '<?= base_url('admin/home')   ?> ';
         }
       });
     });

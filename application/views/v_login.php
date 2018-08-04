@@ -28,9 +28,15 @@
       <a class="hiddenanchor" id="signin"></a>
 
       <div class="login_wrapper">
-    
+
         <div class="animate form login_form">
           <section class="login_content" style="background-color:rgb(27, 18, 56, 0.1);">
+
+            <?php if($this->session->flashdata('notiflogin') ): ?>
+            <div class="x_panel"  style="background-color:red;">
+              <h5 style="color:white;"><?= $this->session->flashdata('notiflogin') ?></h5>
+            </div>
+          <?php endif; ?>
 
             <form class="form-inline" action="<?= base_url('login/loginaction') ?>" method="post">
                   <div class="form-group">

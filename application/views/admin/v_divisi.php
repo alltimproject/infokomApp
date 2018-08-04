@@ -13,7 +13,7 @@
               </div>
               <div class="form-group">
                 <label>Nama Divisi</label>
-                <input type="text" class="form-control" name="nama_divisi" id="nama_divisi">
+                <input type="text" class="form-control" name="nama_divisi" id="nama_divisi" required>
               </div>
               <div class="form-group">
                 <input type="submit" name="submit" id="simpan" value="SIMPAN" class="btn btn-info btn-xs">

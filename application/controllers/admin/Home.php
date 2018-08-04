@@ -285,6 +285,7 @@ class Home extends CI_Controller{
       );
       $this->db->where($where);
       $this->db->update('tb_daftar_absensi', $data2);
+      echo "Gaji karyawan berhasil disimpan";
     }
 
   }

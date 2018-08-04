@@ -26,29 +26,30 @@ class Login extends CI_Controller{
       'password'    => md5($password)
     );
     $cek = $this->m_login->cekData($data);
-    if($cek->num_rows() > 0 )
-    {
-      foreach($cek->result() as $key)
-      {
-        $user_active = $key->username;
-        $level       = $key->level;
-      }
+        if($cek->num_rows() > 0 )
+        {
+          foreach($cek->result() as $key)
+          {
+            $user_active = $key->username;
+            $level       = $key->level;
+          }
 
-      $data_session = array(
-        'useractive' => $user_active,
-        'levelactive' => $level,
-        'login'       => 1
-      );
-      $this->session->set_userdata($data_session);
-      if($level == 'ADMIN')
-      {
-        redirect(base_url('admin/home'));
-      }else{
-        redirect(base_url('direktur/home'));
-      }
-    }else{
-      redirect(base_url());
-    }
+          $data_session = array(
+            'useractive' => $user_active,
+            'levelactive' => $level,
+            'login'       => 1
+          );
+          $this->session->set_userdata($data_session);
+              if($level == 'ADMIN')
+              {
+                redirect(base_url('admin/home'));
+              }else{
+                redirect(base_url('direktur/home'));
+              }
+        }else{
+          $this->session->set_flashdata('notiflogin','Cek kembali username dan password anda');
+          redirect(base_url());
+        }
 
   }
 

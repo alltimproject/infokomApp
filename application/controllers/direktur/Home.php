@@ -38,7 +38,7 @@ class Home extends CI_Controller{
     );
     $this->db->where($where);
     $this->db->update('tb_penggajian', $data);
-    redirect(base_url('direktur/home') );
+    echo "Gaji Berhasil di vaidasi";
   }
 
 

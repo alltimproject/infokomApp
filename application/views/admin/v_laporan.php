@@ -20,13 +20,13 @@
     </div>
 
     <div class="row" id="showgaji">
-      
+
     </div>
 
 
 
   </div>
-<script src="<?= base_url().'assets/vendors/jquery/dist/jquery.min.js' ?> "></script>
+<script src="<?= base_url().'assets1/vendors/jquery/dist/jquery.min.js' ?> "></script>
 <script type="text/javascript">
   $(document).ready(function(){
     $('#selectBulan').change(function(){
